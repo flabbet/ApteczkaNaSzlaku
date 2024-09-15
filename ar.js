@@ -14,11 +14,8 @@ export function attach() {
 
         setInterval(() => {
             const text = document.querySelector("a-text");
-            if (request) {
-                navigator.geolocation.clearWatch(request);
-            }
             if (text) {
-                request = navigator.geolocation.getCurrentPosition((pos) => {
+                navigator.geolocation.getCurrentPosition((pos) => {
                     const distanceInKm = helpers.distanceInKmBetweenEarthCoordinates(startingLocation.latitude, startingLocation.longitude, pos.coords.latitude, pos.coords.longitude);
                     const distanceInM = distanceInKm * 1000;
                     text.setAttribute("value", `${distanceInM.toFixed(2)}m`);
