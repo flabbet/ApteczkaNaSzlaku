@@ -5,15 +5,17 @@ const map = document.querySelector("#map");
 const arScene = document.querySelector("#arFrame");
 let handled = false;
 let attached = false;
+const infoBox = document.querySelector("#info-box");
 
 initMap2D(); 
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
   if(handled === true) return;
-  if (event.beta > 45) {
+  if (event.beta > 55) {
     map.style.display = 'none';
     arScene.style.display = 'block';
+    infoBox.innerText = "Skieruj telefon w dół, aby zobaczyć mapę";
     if(attached === false)
       {
         attach();
@@ -23,5 +25,6 @@ function handleOrientation(event) {
   else {
     map.style.display = 'block';
     arScene.style.display = 'none';
+    infoBox.innerText = "Skieruj telefon w górę, aby zobaczyć widok rzeczywisty";
   }
 }

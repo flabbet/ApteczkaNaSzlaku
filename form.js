@@ -22,6 +22,7 @@ const formElement = document.querySelector("form");
 const inputElement = document.querySelector("input");
 
 let name = null;
+let tel = null;
 
 formElement.onsubmit = (e) => {
     e.preventDefault();
@@ -38,6 +39,11 @@ export function nextStep() {
     if (currentStepElement.isName) {
         name = inputElement.value;
         localStorage.setItem("name", name);
+    }
+
+    if(currentStepElement.inputType === "tel"){
+        tel = inputElement.value;
+        localStorage.setItem("phone", tel);
     }
 }
 

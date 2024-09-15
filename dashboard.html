@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="common.css">
     <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <title>Apteczka na Szlaku | Dashboard</title>
 </head>
 
@@ -17,7 +20,9 @@
         <div class="container">
             <div class="header">
                 <img class="logo" src="assets/logo.png" alt="Apteczka na Szlaku Logo">
-                <img class="profile-icon" src="assets/profile.png" alt="Profile Icon">
+                <a href="/profile.html">
+                    <img class="profile-icon" src="assets/profile.png" alt="Profile Icon">
+                </a>
             </div>
 
             <div class="welcome-section">
@@ -47,10 +52,10 @@
         </div>
     </div>
     <div id="nfc-overlay">
-        <button id="nfc-close-button" >
-            &#60; Anuluj
+        <button class="cancel-button" id="nfc-close-button">
+            <span>&#60;</span> Anuluj
         </button>
-        <div class="nfc-overlay-content" >
+        <div class="nfc-overlay-content">
             <div class="nfc-animation">
                 <canvas id="nfc-canvas" width="300" height="300"></canvas>
             </div>

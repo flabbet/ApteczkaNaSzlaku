@@ -172,9 +172,3 @@ footer {
     font-size: 24px;
     margin-bottom: 100px;
 }
-
-#nfc-close-button{
-    background-color: transparent;
-    font-weight: 500;
-    z-index: 100;
-}

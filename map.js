@@ -1,9 +1,11 @@
+import './common.css';
+
 export function initMap2D() {
-    var map = L.map('map').fitWorld();
+    var map = L.map('map', { zoomControl: false }).fitWorld();
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: 'OpenStreetMap'
+        attribution: 'OpenStreetMap',
     }).addTo(map);
     map.locate({ setView: true, maxZoom: 16 });
 

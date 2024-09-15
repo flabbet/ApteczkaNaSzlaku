@@ -6,3 +6,28 @@ html, body, #map {
     height: 100%;
     width: 100vw;
 }
+
+#back-button{
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 68px;
+    padding: 6px 12px;
+}
+
+#info-box{
+    font-family: 'Nunito Sans', sans-serif;
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 68px;
+
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 24px;
+}

@@ -1,0 +1,25 @@
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.cancel-button{
+    background-color: transparent;
+    font-weight: 500;
+    z-index: 100;
+    border: none;
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.cancel-button span{
+font-weight: 1000;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

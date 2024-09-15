@@ -18,6 +18,7 @@ mapButton.addEventListener("click", () => {
 });
 
 let riveAnimation;
+let nfcTriggeredInput;
 
 nfcCloseButton.addEventListener("click", () => {
     cancelListenNfc();
@@ -26,7 +27,10 @@ nfcCloseButton.addEventListener("click", () => {
 
 nfcButton.addEventListener("click", () => {
     beginListenNfc(() => {
-        window.location = "/opened.html";
+        //nfcTriggeredInput.fire();
+        setTimeout(() => {
+        window.location = "/dashboard.html";
+        }, 1000);
     });
     nfcOverlay.style.display = "block";
 
@@ -38,7 +42,9 @@ nfcButton.addEventListener("click", () => {
             stateMachines: "Idle",
             onLoad: () => {
                 riveAnimation.resizeDrawingSurfaceToCanvas();
-            },
+                //let stateMachine = riveAnimation.stateMachineInputs("Idle");
+                //nfcTriggeredInput = stateMachine[0];
+            }
         });
     }
 });
