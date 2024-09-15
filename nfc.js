@@ -1,23 +1,21 @@
-async function writeTag() {
-    let debugInfo = document.getElementById("debugInfo");
-    if ("NDEFReader" in window) {
-      const ndef = new NDEFReader();
+export async function beginListenNfc() {
+  const nfcDebug = document.querySelector("#nfcDebug");
 
-      
-      debugInfo.innerText = "Writing...";
-      ndef.write({
-        records: [{ recordType: "url", data: "https://w3c.github.io/web-nfc/" }]
-      }).then(() => {
-        debugInfo.innerText = "Message written.";
-      }).catch(error => {
-        debugInfo.innerText = "Write error: " + error;
-      });
+  if (!('NDEFReader' in window)) {
+    nfcDebug.innerText = "NFC not available.";
+    return;
+  } 
 
-    } else {
-      debugInfo.innerText = "Web NFC is not supported.";
-    }
-  }
-
-  
-  setTimeout(writeTag, 1000);
-  writeTag();
+  const ndef = new NDEFReader();
+  await ndef.scan().then(() => {
+    nfcDebug.innerText = "Scan started successfully.";
+    ndef.onreadingerror = () => {
+      nfcDebug.innerText = "Cannot read data from the NFC tag. Try another one?";
+    };
+    ndef.onreading = event => {
+      nfcDebug.innerText = "NDEF message read.";
+    };
+  }).catch(error => {
+    nfcDebug.innerText = `Error! Scan failed to start: ${error}.`;
+  });
+}

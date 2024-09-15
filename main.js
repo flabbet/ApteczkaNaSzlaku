@@ -1,6 +1,7 @@
 import './style.css'
 import { initMap2D } from "./map.js"
 import { attach } from "./ar.js";
+import { beginListenNfc } from "./nfc.js";
 
 const map = document.querySelector("#map");
 const arScene = document.querySelector("#arFrame");
@@ -18,5 +19,7 @@ function handleOrientation(event) {
   }
 }
 
-initMap2D();
+initMap2D(); 
 attach();
+
+document.querySelector("#nfcButton").addEventListener("click", beginListenNfc);

@@ -1,8 +1,8 @@
 import * as helpers from "./helpers.js"
 
 const startingLocation = {
-    latitude: 49.783392 + 0.001,
-    longitude: 19.057185
+    latitude: 49.783392 + 0.00005,
+    longitude: 19.057185 + 0.00005
 }
 
 export function attach() {
@@ -21,7 +21,8 @@ export function attach() {
             if (text) {
                 request = navigator.geolocation.getCurrentPosition((pos) => {
                     const distanceInKm = helpers.distanceInKmBetweenEarthCoordinates(startingLocation.latitude, startingLocation.longitude, pos.coords.latitude, pos.coords.longitude);
-                    text.setAttribute("value", `${distanceInKm.toFixed(2)}km`);
+                    const distanceInM = distanceInKm * 1000;
+                    text.setAttribute("value", `${distanceInM.toFixed(2)}m`);
                 });
             }
         }, 500);
@@ -29,8 +30,6 @@ export function attach() {
 }
 
 function enableScene() {
-
-
     let testEntityAdded = false;
 
     const el = document.querySelector("[gps-new-camera]");
@@ -46,19 +45,19 @@ function enableScene() {
 
             const entity = document.createElement("a-box");
             entity.setAttribute("scale", {
-                x: 20,
-                y: 20,
-                z: 20
+                x: 2,
+                y: 2,
+                z: 2
             });
             entity.setAttribute("position", {
                 x: 0,
-                y: 20,
+                y: 2,
                 z: 0
             });
             entity.setAttribute('material', { color: 'red' });
 
             const text = document.createElement("a-text");
-            const textScale = 100;
+            const textScale = 5;
             text.setAttribute("look-at", "[gps-new-camera]");
             text.setAttribute("scale", {
                 x: textScale,
@@ -66,6 +65,9 @@ function enableScene() {
                 z: textScale
             });
 
+            const distanceInKm = helpers.distanceInKmBetweenEarthCoordinates(startingLocation.latitude, startingLocation.longitude, e.detail.position.latitude, e.detail.position.longitude);
+            const distanceInM = distanceInKm * 1000;
+            text.setAttribute("value", `${distanceInM.toFixed(2)}m`); 
             text.setAttribute("align", "center");
 
             compoundEntity.appendChild(entity);
