@@ -43,7 +43,7 @@ nfcButton.addEventListener("click", () => {
             onLoad: () => {
                 riveAnimation.resizeDrawingSurfaceToCanvas();
                 //let stateMachine = riveAnimation.stateMachineInputs("Idle");
-                //nfcTriggeredInput = stateMachine[0];
+               // nfcTriggeredInput = stateMachine[0];
             }
         });
     }

@@ -84,6 +84,7 @@ button.next-step {
   border: none;
   border-radius: 5px;
   font-size: 18px;
+  border-radius: 68px;
   cursor: pointer;
   width: 100%;
 }
