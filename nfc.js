@@ -1,21 +1,30 @@
-export async function beginListenNfc() {
-  const nfcDebug = document.querySelector("#nfcDebug");
+let cancelSignal = null;
+
+export function cancelListenNfc() {
+  if (cancelSignal) {
+    cancelSignal.abort();
+  }
+}
+
+export async function beginListenNfc(callbackPositive) {
+  const nfcDebug = document.querySelector("#nfc-debug");
+
 
   if (!('NDEFReader' in window)) {
-    nfcDebug.innerText = "NFC not available.";
+    nfcDebug.innerText = "Twoje urządzenie nie obsługuje NFC. Wpisz swój numer telefonu na klawiaturze obok apteczki.";
     return;
   } 
 
   const ndef = new NDEFReader();
-  await ndef.scan().then(() => {
-    nfcDebug.innerText = "Scan started successfully.";
+  cancelSignal = await ndef.scan().then(() => {
     ndef.onreadingerror = () => {
-      nfcDebug.innerText = "Cannot read data from the NFC tag. Try another one?";
+      nfcDebug.innerText = "Hmm, nie udało się odczytać tagu NFC.";
     };
     ndef.onreading = event => {
-      nfcDebug.innerText = "NDEF message read.";
+      nfcDebug.innerText = "Sukces!";
+      callbackPositive();
     };
   }).catch(error => {
-    nfcDebug.innerText = `Error! Scan failed to start: ${error}.`;
+    nfcDebug.innerText = `Wystąpił błąd, prawdopodobnie Twoje urządzenie nie obsługuje NFC: ${error}.`;
   });
 }

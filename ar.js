@@ -5,11 +5,10 @@ const startingLocation = {
     longitude: 19.057185 + 0.00005
 }
 
-export function attach() {
-    window.onload = function () {
-        enableScene();
 
-        // update text
+export function attach() {
+    //window.onload = function () {
+        enableScene();
 
         let request = null;
 
@@ -26,7 +25,7 @@ export function attach() {
                 });
             }
         }, 500);
-    }
+   // }
 }
 
 function enableScene() {

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <title>Apteczka na Szlaku | Dashboard</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="container">
+            <div class="header">
+                <img class="logo" src="assets/logo.png" alt="Apteczka na Szlaku Logo">
+                <img class="profile-icon" src="assets/profile.png" alt="Profile Icon">
+            </div>
+
+            <div class="welcome-section">
+                <h2>Cześć <span id="nameSpan"></span></h2>
+                <p>
+                    Apteczka na Szlaku to dostęp do apteczek na popularnych szlakach górskich - z tą aplikacją możesz
+                    szybko
+                    pomóc sobie i innym w razie wypadku.
+                </p>
+            </div>
+
+            <div class="buttons-section">
+                <button class="big-button green-button" id="map-button">
+                    <img src="assets/navigate.png" alt="Navigate Icon">
+                    NAWIGUJ DO APTECZKI
+                </button>
+                <button id="nfc-button" class="big-button red-button">
+                    <img src="assets/heart.png" alt="First Aid Icon">
+                    OTWÓRZ APTECZKĘ
+                </button>
+                <button class="outline-button">Zgłoś wykorzystanie apteczki</button>
+            </div>
+
+            <footer>
+                <a href="#" class="support-link">Wesprzyj nas</a>
+            </footer>
+        </div>
+    </div>
+    <div id="nfc-overlay">
+        <button id="nfc-close-button" >
+            &#60; Anuluj
+        </button>
+        <div class="nfc-overlay-content" >
+            <div class="nfc-animation">
+                <canvas id="nfc-canvas" width="300" height="300"></canvas>
+            </div>
+            <h2 id="nfc-debug">Odblokuj i przybliż telefon to wyznaczonego miejsca aby otworzyć apteczkę.</h2>
+        </div>
+
+        <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,101 @@
-body {
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
 }
-html, body, #map {
-  height: 100%;
-  width: 100vw;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+}
+
+.input-group {
+  width: 100%;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bottom-section {
+  margin-bottom: 20px;
+}
+
+button.next-step {
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button.next-step:hover {
+  background-color: #b71c1c;
+}
+
+
+#nfc{
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  z-index: 999999;
 }
