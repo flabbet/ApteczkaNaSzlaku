@@ -12,7 +12,7 @@ window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
   if(handled === true) return;
-  if (event.beta > 55) {
+  if (event.beta > 45) {
     map.style.display = 'none';
     arScene.style.display = 'block';
     infoBox.innerText = "Skieruj telefon w dół, aby zobaczyć mapę";
