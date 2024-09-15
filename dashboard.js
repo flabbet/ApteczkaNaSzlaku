@@ -30,7 +30,7 @@ nfcButton.addEventListener("click", () => {
         //nfcTriggeredInput.fire();
         setTimeout(() => {
         window.location = "/dashboard.html";
-        }, 1000);
+        }, 2000);
     });
     nfcOverlay.style.display = "block";
 
