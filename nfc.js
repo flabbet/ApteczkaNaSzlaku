@@ -21,8 +21,14 @@ export async function beginListenNfc(callbackPositive) {
       nfcDebug.innerText = "Hmm, nie udało się odczytać tagu NFC.";
     };
     ndef.onreading = event => {
+      try{
+       ndef.write("74939205$Wiktor$Bien");
       nfcDebug.innerText = "Sukces!";
       callbackPositive();
+      }
+      catch(e){
+        nfcDebug.innerText = "Wysąpił błąd przy zapisie";
+      }
     };
   }).catch(error => {
     nfcDebug.innerText = `Wystąpił błąd, prawdopodobnie Twoje urządzenie nie obsługuje NFC: ${error}.`;
